@@ -1,0 +1,37 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        # stack = []
+        # for sym in s :
+        #     if sym in ["[","(","{"] :
+        #         stack.append(sym)
+        #     else :
+        #         if not stack :
+        #             return False
+        #         if sym == "]" and stack[-1] == "[":
+        #             stack.pop()
+        #         elif sym == "}" and stack[-1] == "{":
+        #             stack.pop()
+        #         elif sym == ")" and stack[-1] == "(":
+        #             stack.pop()
+        #         else :
+        #             return False
+        # return not stack
+
+        stack = []
+        mappings = {")":"(","]":"[","}":"{"}
+
+        for sym in s:
+            if sym in mappings.values():
+                stack.append(sym)
+            else :
+                if not stack or stack[-1] != mappings[sym]:
+                    return False
+                stack.pop()
+        return not stack
+
+
+        
+                
+
+        
